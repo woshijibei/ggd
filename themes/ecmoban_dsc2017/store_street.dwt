@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<!-- #BeginLibraryItem "/library/js_languages_new.lbi" --><!-- #EndLibraryItem -->
+<link rel="stylesheet" type="text/css" href="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/css/suggest.css" />
+</head>
+
+<body>
+	<!-- #BeginLibraryItem "/library/page_header_common.lbi" --><!-- #EndLibraryItem -->
+    <div class="content">
+        <div class="banner street-banner">
+            {* DSC 提醒您：动态载入store_street_ad.lbi，显示首页分类小广告 *}{insert name='get_adv_child' ad_arr=$store_street_ad}
+        </div>
+        <div class="street-main">
+            <div class="w w1200">
+                
+                <div class="street-list" ectype="store_shop_list" id="store_shop_list">
+					{include file="/library/store_shop_list.lbi"}
+                </div>
+                <div class="sellerlist" ectype="pages_ajax" id="pages_ajax">
+                	{include file="/library/pages_ajax.lbi"}
+                </div>
+            </div>
+        </div>
+    </div>
+    <input name="area_list" value="" type="hidden" />
+    <input name="user_id" value="{$user_id}" type="hidden" />
+    {* ECSHOP 提醒您：动态载入user_menu_position.lbi，显示首页分类小广告 *}{insert name='user_menu_position'}
+
+    <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+    
+    {insert_scripts files='jquery.SuperSlide.2.1.1.js,common.js,cart_common.js,parabola.js,shopping_flow.js,cart_quick_links.js'}
+	<script type="text/javascript" src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/js/dsc-common.js"></script>
+    <script type="text/javascript" src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/js/jquery.purebox.js"></script>
+    <script type="text/javascript" src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/js/masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/js/imagesloaded.pkgd.js"></script>
+    <script type="text/javascript">
+        function street(){
+			$('.street-list').masonry('destroy');
+			
+			var masonryOptions = {
+				columWidth: '.grid-sizer',
+				gutter: '.gutter-sizer',
+				itemSelector: '.street-list-item',
+				percentPosition: true
+			}
+			
+			var $grid = $('.street-list').masonry( masonryOptions );
+
+			$grid.imagesLoaded().progress(function() {
+				$grid.masonry();
+			});
+		}
+		street();
+    </script>
+</body>
+</html>
