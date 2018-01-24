@@ -1,0 +1,242 @@
+<?php
+
+/**
+
+ * $Id: calendar.php 17217 2011-01-19 06:29:08Z liubo $
+*/
+
+/*购物车*/
+$_LANG['With_a_gift'] = "Free gift with minimum purchase";
+$_LANG['Full_reduction'] = "Discount with minimum purchase";
+$_LANG['discount'] = "Discount";
+$_LANG['shiping_prompt'] = "This area is temporarily does not support delivery";
+$_LANG['shelves_goods'] = "This item has been shelved";
+$_LANG['purchasing_prompt'] = "This item has reached its limit purchase condition, unable to purchase again";
+$_LANG['purchasing_prompt_two'] = "This item has exceed the limit purchase quantity";
+$_LANG['system_error'] = "System is unable to receive incomplete data";
+$_LANG['data_null'] = "No data can be submitted, please select again";
+$_LANG['Stock_goods_null'] = "This item is temporarily out of stock";
+$_LANG['data_null'] = "No data can be submitted, please select again";
+$_LANG['Stock_goods_null'] = "This item is temporarily out of stock";
+$_LANG['vouchers_all'] = "All voucher";
+$_LANG['vouchers_user'] = "User voucher";
+$_LANG['vouchers_shoping'] = "Shopping voucher";
+$_LANG['vouchers_login'] = "Register voucher";
+$_LANG['unknown'] = "Unknown";
+$_LANG['currency'] = "Available for all category";
+$_LANG['limit_goods'] = "Limited item";
+$_LANG['unit']['hour'] = 'Hour';
+$_LANG['unit']['day'] = 'Day';
+$_LANG['unit']['week'] = 'Week';
+$_LANG['Coupon_null'] = 'Your selected coupon does not exists！';
+$_LANG['Ious_error_one'] = "You are not authorized user to use baitiao payment. Please choose another payment method.";
+$_LANG['Ious_error_two'] = "Baitiao balance is insufficient, please choose other payment methods.";
+$_LANG['Ious_error_Three'] = "You overdue payment has not been clear,cannot pay with baitiao payment, please select another payment method";
+$_LANG['pay_password_packup_error'] = 'An error occured in payment password！'; 
+$_LANG['balance_pay'] = "Balance payment";
+$_LANG['ious_pay'] = "Baitiao payment";
+$_LANG['store_msg'] = "Dear %s user，your store order %s Pick up no. %s ，Please do not disclose your pick up no. to anyone.If you did not operate, please ignore this message.";
+$_LANG['purchasing_prompt'] = "This %s item has been accumulated more than limit purchase quantity.";
+$_LANG['purchase_Prompt'] = "This %s item has already been purchased, unable to purchase again.";
+$_LANG['youhui'] = "Promotion";
+$_LANG['Distribution_exists'] = "Distribution information already exists"; 
+$_LANG['add_success_one'] = 'Information added successfully, pending review...';
+$_LANG['edit_success_one'] = 'Information edited successfully, pending review...';
+$_LANG['add_success_two'] = 'Information added successfully';
+$_LANG['edit_success_two'] = 'Information edited successfully';
+$_LANG['cart_or_login_not'] = 'The shopping cart is empty or not logged in！';
+$_LANG['address_Prompt'] = 'Please select or fill in the shipping address！';
+$_LANG['payment_is_online'] = 'Online payment';
+$_LANG['payment_Prompt'] = 'Please wait while you are redirected to the gateway to make payment, please do not close this window before the payment is complete';
+$_LANG['payment_end'] = 'Payment completed';
+$_LANG['payment_problem'] = 'payment problem';
+$_LANG['Distribution_limit'] = "this item is temporarily support delivery within mainland China only";
+$_LANG['checkd_all'] = "Select All";
+$_LANG['attribute'] = "Attribute";
+$_LANG['Unit_price'] = "Unit Price（MR）";
+$_LANG['insufficient'] = "Please select other payment method";
+$_LANG['Distribution_to'] = "Ship to";
+$_LANG['activity_notes_one'] = "Activity product has reached minimum purchase";
+$_LANG['activity_notes_three'] = "Activity product with minimum purchase";
+$_LANG['yuan'] = "MR";
+$_LANG['jian'] = "Pcs";
+$_LANG['Already_receive'] = "Already received";
+$_LANG['receive_gifts'] = "Receive gift";
+$_LANG['receive_gifts_again'] = "Receive gift agian";
+$_LANG['receive_gift'] = "Receive gift";
+$_LANG['see_gift'] = "View gift";
+$_LANG['gather_together'] = "Add on item";
+$_LANG['been_reduced'] = "Already Reduced";
+$_LANG['activity_notes_two'] = "Yuan，can enjoy discount with minimum purhase";
+$_LANG['reduce'] = "less";
+$_LANG['Already_enjoy'] = "Already enjoyed";
+$_LANG['percent_off_Discount'] = "Discount";
+$_LANG['percent_off'] = "Discount";
+$_LANG['by_stages'] = "Instalment";
+$_LANG['seller_store'] = "Store pick up";
+$_LANG['Have_goods'] = "In Stock"; 
+$_LANG['No_goods'] = "Out of stock";
+$_LANG['Move_my_collection'] = "Moved to My Favorites";
+$_LANG['remove_checked_goods'] = "Delete selected item";
+$_LANG['go_pay'] = "Go pay";
+$_LANG['title_count'] = 'Subtotal';
+$_LANG['Already_save'] = "Already saved";
+$_LANG['choose'] = "Already selected";
+$_LANG['cart_null_goods'] = "There are no items in the shopping cart, after login you will see the items you added before.";
+$_LANG['go_shoping'] = "Go to shopping";
+$_LANG['Recommendation'] = "Recomendation";
+$_LANG['history'] = "Recent browsing";
+
+/*新版前台新增*/
+$_LANG['buy_more'] = 'Maximum no. of receive';  
+$_LANG['a_goods'] = 'unit product'; 
+
+//结算页面
+$_LANG['order_confirm'] = "Fill in and confirm the order information";
+$_LANG['fill_orderinfo'] = "Fill in the order information";
+$_LANG['my_cart'] = "Shopping Cart";
+$_LANG['add_consignee_address'] = 'Add Address';
+$_LANG['edit_consignee_address'] = 'Update Address';
+$_LANG['remove_consignee_address'] = 'Delete Address';
+$_LANG['offline_store_information'] = 'Store information';
+$_LANG['offline_store'] = 'Store';
+$_LANG['Advance_payment'] = 'Advance payment';
+$_LANG['Other_information'] = 'Other information';
+$_LANG['pay_password'] = 'payment password';
+$_LANG['Invoice_information'] = 'Invoice information';
+$_LANG['Ordinary_invoice'] = 'Ordinary invoice（paper）';
+$_LANG['personal'] = "Personal";
+$_LANG['label_coupons'] = 'Use coupons';
+$_LANG['Cancel_check'] = "Cancel selection";
+$_LANG['full'] = "Full";
+$_LANG['overdue_time'] = "Valid unti";
+$_LANG['checkout_success'] = "Your order has been submitted successfully";
+$_LANG['submit_order_success'] = "Your order has been submitted successfully";
+$_LANG['checkout_success_one'] = "Thank you for shopping! Your order has been submitted successfully!";
+$_LANG['order_amount'] = 'Total payment amount';
+$_LANG['Select_payment'] = 'Your selected payment is';
+$_LANG['checkout_success_two'] = "As your item is issued by a different seller,thus your order will be divided into";
+$_LANG['checkout_success_three'] = "different order delivery";
+$_LANG['checkout_success_Four'] = "Yuan | Next payment date";
+$_LANG['Available_Credit'] = "Available credit";
+$_LANG['qi'] = 'Stage';
+$_LANG['bank_cord'] = 'Bank card';
+$_LANG['immediately_pay'] = 'Pay now';
+$_LANG['checkout_success_Five'] = "Congratulations, your order is submitted successfully";
+$_LANG['checkout_success_six'] = "Dear users because it is different seller, this order will be divided into";
+$_LANG['checkout_success_Seven'] = "Thank you for shopping in our store! Your order has been submitted, please remember your order number";
+$_LANG['checkout_success_Eight'] = "Thank you for shopping in our store! Your order has been submitted, please remember your order number";
+$_LANG['order_number'] = "Order number";
+$_LANG['Total_amount_payable'] = "Total payment amount";
+$_LANG['freight'] = "Shipping fees";
+$_LANG['orders_print'] = "Save and print order";
+$_LANG['Buy_and_buy'] = "Buy and buy again";
+$_LANG['store_name'] = "Store name";
+$_LANG['payment_Success'] = "Congratulations, your payment was successful";
+$_LANG['label_order'] = 'My Order';
+
+$_LANG['Can_receive_gifts'] = "Yuan，can receive gift";
+$_LANG['Can_also_receive'] = "Still can receive gift";
+$_LANG['zhekouxianzhi'] = "Yuan， can enjoy discount";
+$_LANG['Can_receive_up_to'] = "Maximum can receive up to";
+$_LANG['checked_in'] = "Selected";
+$_LANG['drop_goods'] = "Delete item？";
+$_LANG['drop_desc'] = "You can select and move to favorite or delete item";
+$_LANG['Move_collection'] = "Move to favorite";
+$_LANG['Move_desc'] = "After moving the selected items, it will not be displayed in the shopping cart.";
+$_LANG['confirm_default_address'] = "Are you sure you want to set as the default shipping address?";
+$_LANG['confirm_drop_address'] = "Are you sure you want to delete shipping address?";
+$_LANG['please_checked_address'] = "You have not selected the shipping address！";
+$_LANG['cart_empty_goods'] = "There are no items in your shopping cart！";
+$_LANG['confirm_Move_collection'] = "After moving, the selected items will not be displayed in the shopping cart！";
+
+//20161214 start
+$_LANG['Delivery_list'] = "Delivery list";
+$_LANG['back_cart'] = "Back to shopping cart";
+$_LANG['business'] = "Seller";
+$_LANG['cart_goods_one'] = "Yuan can receive gift，first come first served";
+$_LANG['cart_goods_two'] = "You have received the gift";
+$_LANG['cart_goods_three'] = "You can return to the shopping cart to collect gifts";
+$_LANG['cart_goods_four'] = "Yuan cash";
+$_LANG['cart_goods_five'] = "Yuan， you can enjoy discount with minimum purchase";
+$_LANG['Deposit_flow'] = "Deposit";
+$_LANG['Original_price'] = "Original price";
+$_LANG['Discount_flow'] = "Discount";
+$_LANG['Store_from_mentioning'] = "Store pick up";
+$_LANG['Door_self'] = "Self pick up";
+$_LANG['Recommended'] = "（Recommended）";
+$_LANG['store_address'] = "Store address";
+$_LANG['store_pic'] = "Store picture";
+$_LANG['stores_opening_hours'] = "Business hour";
+$_LANG['stores_traffic_line'] = "Traffic line";
+$_LANG['Please_store'] = "Please select store..";
+$_LANG['freight_flow'] = "Shipping&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fee";
+$_LANG['Free_shipping'] = "Free shipping";
+$_LANG['Place_reference'] = "Self pick up place";
+$_LANG['select_Place_reference'] = "Please select self pick up place";
+$_LANG['Self_mentioning_date'] ="Self pick up date";
+$_LANG['order_Remarks_flow'] ="Add order remark";
+$_LANG['order_Remarks_desc'] ="Order remark limited to 60 words";
+$_LANG['order_Remarks_desc_one'] ="Remarks：Please do not fill in any related payment, receipt and invoice information.";
+$_LANG['Match_price'] = "Mix and Match price";
+$_LANG['sheng'] = "Save";
+$_LANG['combo_markPrice'] = "Reference price";
+$_LANG['Already_match'] = "Already mix & match";
+$_LANG['Package_flow_desc'] = "Please select the package item information";
+$_LANG['service_flow'] = 'Service';
+$_LANG['Stock_flow'] = "Inventory Stock";
+$_LANG['goods_null'] = "This item is temporarily out of stock，unable to purchase!";
+$_LANG['goods_info_select'] = "Please select item information";
+$_LANG['tao'] = "Package";
+$_LANG['Total_flow'] = "Total";
+$_LANG['confirm_buy'] = "Confirm purchase package";
+$_LANG['confirm_cart'] = "Confirm add to shopping cart";
+$_LANG['confirm_cart_two'] = "Please confirm your item information again";
+$_LANG['select_combination'] = "Plesde select the combination item";
+$_LANG['submit_order'] ='Submit';
+$_LANG['rmb_pay'] = "RMB payment";
+$_LANG['integral_pay'] = 'Point payment';
+$_LANG['jian_goods'] = "Unit item";
+$_LANG['Send_to'] = "Delivey to";
+$_LANG['Consignee'] = "Consignee";
+$_LANG['Selection_region'] = "Select region";
+$_LANG['All_region'] = "All region";
+$_LANG['address'] = "Address";
+$_LANG['phone'] = 'Phone';
+$_LANG['reminder'] = 'Reminder';
+$_LANG['reminder_one'] = '1、You can make payment when self pick up，we are support payment in cash or credit card ';
+$_LANG['reminder_two'] = 'View the self pick up process';
+$_LANG['reminder_three'] = "2、According to your delivery address is showing self pick up in this particular range，please confirm that your shipping address is correct.";
+$_LANG['reminder_four'] = "Reminder：We will try our best to meet your chosen delivery date and time slot.However, weather,traffic and other external factors may be delays your order! ";
+$_LANG['Time_slot'] = "Time slot";
+$_LANG['Optional'] = "Optional";
+$_LANG['wu'] = "No";	
+
+$_LANG['js_languages']['Parameter_error'] = "Parameter error";
+//20161214 end
+
+$_LANG['js_languages']['Purchase_restrictions'] = "Purchase quantity can not less than 1 pieces";
+$_LANG['js_languages']['Purchase_restrictions_one'] = "Please select at least one item to purchase";
+$_LANG['js_languages']['remove_checked_goods'] = "Delete selected item";
+$_LANG['js_languages']['No_goods'] = "Sorry, sold out";
+$_LANG['js_languages']['go_up'] = "Continue";
+$_LANG['js_languages']['back_cart'] = "Back to shopping cart";
+$_LANG['js_languages']['save'] = 'Save';
+$_LANG['js_languages']['delivery_Prompt'] = 'This region does not support for pick up!';
+$_LANG['js_languages']['delivery_Prompt_two'] = 'Please select pick up time range!';
+$_LANG['js_languages']['checked_address'] = 'Please select delivery address!';
+$_LANG['js_languages']['no_store'] = 'This region does not have store!';
+$_LANG['js_languages']['No_shipping'] = "Sorry，unable to delivery";
+
+/* 新前台模板新增 start*/
+$_LANG['Purchase_restrictions_one'] = "Please select at least one item!";
+$_LANG['pat'] = "Please wait while you are redirected to the gateway to make payment, please do not close this window before the payment is complete";
+$_LANG['pay_dialog_success'] = "Payment successful";
+$_LANG['order_detail'] = "Order detail";
+$_LANG['pay_dialog_fail'] = "Payment Failed";
+$_LANG['pay_problem'] = "Payment problems";
+$_LANG['pay_qt'] = "Continue shopping";
+$_LANG['submitted'] = "Submitted successfully";
+/* 新前台模板新增 end*/
+
+
