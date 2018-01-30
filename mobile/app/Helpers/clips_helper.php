@@ -477,7 +477,7 @@ function get_booking_list($user_id, $num, $start)
 			$row['dispose_note'] = 'N/A';
 		}
 
-		$booking[] = array('rec_id' => $row['rec_id'], 'goods_name' => $row['goods_name'], 'goods_number' => $row['goods_number'], 'goods_thumb' => $row['goods_thumb'], 'booking_time' => local_date($GLOBALS['_CFG']['date_format'], $row['booking_time']), 'dispose_note' => $row['dispose_note'], 'url' => build_uri('goods', array('gid' => $row['goods_id']), $row['goods_name']));
+		$booking[] = array('rec_id' => $row['rec_id'], 'goods_name' => addslashes($row['goods_name']), 'goods_number' => $row['goods_number'], 'goods_thumb' => $row['goods_thumb'], 'booking_time' => local_date($GLOBALS['_CFG']['date_format'], $row['booking_time']), 'dispose_note' => $row['dispose_note'], 'url' => build_uri('goods', array('gid' => $row['goods_id']), $row['goods_name']));
 	}
 
 	return $booking;

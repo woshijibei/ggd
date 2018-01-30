@@ -280,7 +280,7 @@ function order_paid($log_id, $pay_status = PS_PAYED, $note = '', $module_name = 
 						if ($code == 'virtual_card') {
 							foreach ($goods_list as $goods) {
 								if ($info = virtual_card_result($row['order_sn'], $goods)) {
-									$virtual_card[] = array('goods_id' => $goods['goods_id'], 'goods_name' => $goods['goods_name'], 'info' => $info);
+									$virtual_card[] = array('goods_id' => $goods['goods_id'], 'goods_name' => addslashes($goods['goods_name']), 'info' => $info);
 								}
 							}
 
@@ -372,7 +372,7 @@ class paypal
 		}
 
 		$payPalURL = $this->PAYPAL_URL . $token;
-		$button = '<a type="button" class="box-flex btn-submit" onclick="window.open(\'' . "http://www.morecool.net/mobile/index.php?m=article&a=detail&id=68" . '\')">Pay Now</a>';
+		$button = '<a type="button" class="box-flex btn-submit" onclick="window.open(\'' . "http://www.giggleday.com/mobile/index.php?m=article&a=detail&id=71" . '\')">Pay Now</a>';
 		return $button;
 	}
 

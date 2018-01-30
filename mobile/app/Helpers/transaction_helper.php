@@ -657,7 +657,7 @@ function get_order_detail($order_id, $user_id = 0)
 			if ($code == 'virtual_card') {
 				foreach ($goods_list as $goods) {
 					if ($info = virtual_card_result($order['order_sn'], $goods)) {
-						$virtual_card[] = array('goods_id' => $goods['goods_id'], 'goods_name' => $goods['goods_name'], 'info' => $info);
+						$virtual_card[] = array('goods_id' => $goods['goods_id'], 'goods_name' => addslashes($goods['goods_name']), 'info' => $info);
 					}
 				}
 			}
@@ -669,7 +669,7 @@ function get_order_detail($order_id, $user_id = 0)
 
 					foreach ($vcard_arr as $val) {
 						if ($info = virtual_card_result($order['order_sn'], $val)) {
-							$virtual_card[] = array('goods_id' => $goods['goods_id'], 'goods_name' => $goods['goods_name'], 'info' => $info);
+							$virtual_card[] = array('goods_id' => $goods['goods_id'], 'goods_name' => addslashes($goods['goods_name']), 'info' => $info);
 						}
 					}
 				}

@@ -90,7 +90,7 @@ class FlowService
 			foreach ($v['goods'] as $key => $value) {
 				$totalPrice += $value['goods_price'] * $value['goods_number'];
 				$totalNumber += $value['goods_number'];
-				$list[$v['ru_id']]['shop_list'][$key] = array('rec_id' => $value['rec_id'], 'user_id' => $v['user_id'], 'goods_id' => $value['goods_id'], 'goods_name' => $value['goods_name'], 'ru_id' => $v['ru_id'], 'shop_name' => $v['shop_name'], 'market_price' => strip_tags($value['market_price']), 'market_price_formated' => price_format($value['market_price'], false), 'goods_price' => strip_tags($value['goods_price']), 'goods_price_formated' => price_format($value['goods_price'], false), 'goods_number' => $value['goods_number'], 'goods_thumb' => get_image_path($value['goods_thumb']), 'goods_attr' => $value['goods_attr']);
+				$list[$v['ru_id']]['shop_list'][$key] = array('rec_id' => $value['rec_id'], 'user_id' => $v['user_id'], 'goods_id' => $value['goods_id'], 'goods_name' => addslashes($value['goods_name']), 'ru_id' => $v['ru_id'], 'shop_name' => $v['shop_name'], 'market_price' => strip_tags($value['market_price']), 'market_price_formated' => price_format($value['market_price'], false), 'goods_price' => strip_tags($value['goods_price']), 'goods_price_formated' => price_format($value['goods_price'], false), 'goods_number' => $value['goods_number'], 'goods_thumb' => get_image_path($value['goods_thumb']), 'goods_attr' => $value['goods_attr']);
 			}
 
 			foreach ($v['shop_info'] as $key => $value) {
@@ -337,7 +337,7 @@ class FlowService
 					continue;
 				}
 
-				$orderGoods[] = array('order_id' => $new_order_id, 'goods_id' => $v['goods_id'], 'goods_name' => $v['goods_name'], 'goods_sn' => $v['goods_sn'], 'product_id' => $v['product_id'], 'goods_number' => $v['goods_number'], 'market_price' => $v['market_price'], 'goods_price' => $v['goods_price'], 'goods_attr' => $v['goods_attr'], 'is_real' => $v['is_real'], 'extension_code' => $v['extension_code'], 'parent_id' => $v['parent_id'], 'is_gift' => $v['is_gift'], 'model_attr' => $v['model_attr'], 'goods_attr_id' => $v['goods_attr_id'], 'ru_id' => $v['ru_id'], 'shopping_fee' => $v['shopping_fee'], 'warehouse_id' => $v['warehouse_id'], 'area_id' => $v['area_id']);
+				$orderGoods[] = array('order_id' => $new_order_id, 'goods_id' => $v['goods_id'], 'goods_name' => addslashes($v['goods_name']), 'goods_sn' => $v['goods_sn'], 'product_id' => $v['product_id'], 'goods_number' => $v['goods_number'], 'market_price' => $v['market_price'], 'goods_price' => $v['goods_price'], 'goods_attr' => $v['goods_attr'], 'is_real' => $v['is_real'], 'extension_code' => $v['extension_code'], 'parent_id' => $v['parent_id'], 'is_gift' => $v['is_gift'], 'model_attr' => $v['model_attr'], 'goods_attr_id' => $v['goods_attr_id'], 'ru_id' => $v['ru_id'], 'shopping_fee' => $v['shopping_fee'], 'warehouse_id' => $v['warehouse_id'], 'area_id' => $v['area_id']);
 			}
 
 			$this->orderGoodsRepository->insertOrderGoods($orderGoods);

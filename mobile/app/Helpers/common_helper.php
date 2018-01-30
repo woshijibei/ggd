@@ -825,7 +825,7 @@ function get_virtual_goods($order_id, $shipping = false)
 	$virtual_goods = array();
 
 	foreach ($res as $row) {
-		$virtual_goods[$row['extension_code']][] = array('goods_id' => $row['goods_id'], 'goods_name' => $row['goods_name'], 'num' => $row['num']);
+		$virtual_goods[$row['extension_code']][] = array('goods_id' => $row['goods_id'], 'goods_name' => addslashes($row['goods_name']), 'num' => $row['num']);
 	}
 
 	return $virtual_goods;
@@ -840,7 +840,7 @@ function virtual_goods_ship(&$virtual_goods, &$msg, $order_sn, $return_result = 
 			foreach ($goods_list as $goods) {
 				if (virtual_card_shipping($goods, $order_sn, $msg, $process)) {
 					if ($return_result) {
-						$virtual_card[] = array('goods_id' => $goods['goods_id'], 'goods_name' => $goods['goods_name'], 'info' => virtual_card_result($order_sn, $goods));
+						$virtual_card[] = array('goods_id' => $goods['goods_id'], 'goods_name' => addslashes($goods['goods_name']), 'info' => virtual_card_result($order_sn, $goods));
 					}
 				}
 				else {
@@ -4175,7 +4175,7 @@ function insert_snapshot($arr = array())
 	$arr = (is_array($arr) ? $arr : array());
 
 	if ($arr) {
-		$snapshot_info = array('order_sn' => $arr['order_sn'], 'user_id' => $arr['user_id'], 'goods_id' => $arr['goods_id'], 'goods_name' => $arr['goods_name'], 'goods_sn' => $arr['goods_sn'], 'shop_price' => $arr['goods_price'], 'goods_number' => $arr['goods_number'], 'shipping_fee' => $arr['shipping_fee'], 'rz_shopName' => get_shop_name($arr['ru_id'], 1), 'goods_weight' => $arr['goods_weight'], 'add_time' => $arr['add_time'], 'goods_attr' => $arr['goods_attr'], 'goods_attr_id' => $arr['goods_attr_id'], 'ru_id' => $arr['ru_id'], 'goods_desc' => $arr['goods_desc'], 'goods_img' => $arr['goods_img'], 'snapshot_time' => gmtime());
+		$snapshot_info = array('order_sn' => $arr['order_sn'], 'user_id' => $arr['user_id'], 'goods_id' => $arr['goods_id'], 'goods_name' => addslashes($arr['goods_name']), 'goods_sn' => $arr['goods_sn'], 'shop_price' => $arr['goods_price'], 'goods_number' => $arr['goods_number'], 'shipping_fee' => $arr['shipping_fee'], 'rz_shopName' => get_shop_name($arr['ru_id'], 1), 'goods_weight' => $arr['goods_weight'], 'add_time' => $arr['add_time'], 'goods_attr' => $arr['goods_attr'], 'goods_attr_id' => $arr['goods_attr_id'], 'ru_id' => $arr['ru_id'], 'goods_desc' => $arr['goods_desc'], 'goods_img' => $arr['goods_img'], 'snapshot_time' => gmtime());
 		return $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('trade_snapshot'), $snapshot_info, 'INSERT');
 	}
 	else {

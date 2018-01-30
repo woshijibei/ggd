@@ -24,7 +24,7 @@ class CartService
 
 		foreach ($cart['goods_list'] as $v) {
 			foreach ($v['goods'] as $key => $value) {
-				$result['cart_list'][$v['ru_id']][] = array('rec_id' => $value['rec_id'], 'user_id' => $v['user_id'], 'ru_id' => $value['ru_id'], 'shop_name' => $v['shop_name'], 'goods_id' => $value['goods_id'], 'goods_name' => $value['goods_name'], 'market_price' => $value['market_price'], 'market_price_formated' => price_format($value['market_price'], false), 'goods_price' => $value['goods_price'], 'goods_price_formated' => price_format($value['goods_price'], false), 'goods_number' => $value['goods_number'], 'goods_attr' => $value['goods_attr'], 'goods_attr_id' => $value['goods_attr_id'], 'goods_thumb' => get_image_path($value['goods_thumb']));
+				$result['cart_list'][$v['ru_id']][] = array('rec_id' => $value['rec_id'], 'user_id' => $v['user_id'], 'ru_id' => $value['ru_id'], 'shop_name' => $v['shop_name'], 'goods_id' => $value['goods_id'], 'goods_name' => addslashes($value['goods_name']), 'market_price' => $value['market_price'], 'market_price_formated' => price_format($value['market_price'], false), 'goods_price' => $value['goods_price'], 'goods_price_formated' => price_format($value['goods_price'], false), 'goods_number' => $value['goods_number'], 'goods_attr' => $value['goods_attr'], 'goods_attr_id' => $value['goods_attr_id'], 'goods_thumb' => get_image_path($value['goods_thumb']));
 			}
 		}
 
@@ -44,7 +44,7 @@ class CartService
 	{
 		$list = $this->goodsRepository->findByType('best');
 		$bestGoods = array_map(function($v) {
-			return array('goods_id' => $v['goods_id'], 'goods_name' => $v['goods_name'], 'market_price' => $v['market_price'], 'market_price_formated' => price_format($v['market_price'], false), 'shop_price' => $v['shop_price'], 'shop_price_formated' => price_format($v['shop_price'], false), 'goods_thumb' => get_image_path($v['goods_thumb']));
+			return array('goods_id' => $v['goods_id'], 'goods_name' => addslashes($v['goods_name']), 'market_price' => $v['market_price'], 'market_price_formated' => price_format($v['market_price'], false), 'shop_price' => $v['shop_price'], 'shop_price_formated' => price_format($v['shop_price'], false), 'goods_thumb' => get_image_path($v['goods_thumb']));
 		}, $list);
 		return $bestGoods;
 	}
@@ -87,7 +87,7 @@ class CartService
 			}
 		}
 		else {
-			$arguments = array('goods_id' => $params['id'], 'user_id' => $params['uid'], 'goods_sn' => $goods['goods_sn'], 'product_id' => empty($product['id']) ? '' : $product['id'], 'group_id' => '', 'goods_name' => $goods['goods_name'], 'market_price' => $goods['market_price'], 'goods_price' => $goodsPrice, 'goods_number' => $params['num'], 'goods_attr' => $attrNameStr, 'is_real' => $goods['is_real'], 'extension_code' => empty($params['extension_code']) ? '' : $params['extension_code'], 'parent_id' => 0, 'rec_type' => 0, 'is_gift' => 0, 'is_shipping' => $goods['is_shipping'], 'can_handsel' => '', 'model_attr' => $goods['model_attr'], 'goods_attr_id' => $goodsAttrId, 'ru_id' => $goods['user_id'], 'shopping_fee' => '', 'warehouse_id' => '', 'area_id' => '', 'add_time' => gmtime(), 'stages_qishu' => '', 'store_id' => '', 'freight' => '', 'tid' => '', 'shipping_fee' => '', 'store_mobile' => '', 'take_time' => '', 'is_checked' => '');
+			$arguments = array('goods_id' => $params['id'], 'user_id' => $params['uid'], 'goods_sn' => $goods['goods_sn'], 'product_id' => empty($product['id']) ? '' : $product['id'], 'group_id' => '', 'goods_name' => addslashes($goods['goods_name']), 'market_price' => $goods['market_price'], 'goods_price' => $goodsPrice, 'goods_number' => $params['num'], 'goods_attr' => $attrNameStr, 'is_real' => $goods['is_real'], 'extension_code' => empty($params['extension_code']) ? '' : $params['extension_code'], 'parent_id' => 0, 'rec_type' => 0, 'is_gift' => 0, 'is_shipping' => $goods['is_shipping'], 'can_handsel' => '', 'model_attr' => $goods['model_attr'], 'goods_attr_id' => $goodsAttrId, 'ru_id' => $goods['user_id'], 'shopping_fee' => '', 'warehouse_id' => '', 'area_id' => '', 'add_time' => gmtime(), 'stages_qishu' => '', 'store_id' => '', 'freight' => '', 'tid' => '', 'shipping_fee' => '', 'store_mobile' => '', 'take_time' => '', 'is_checked' => '');
 			$goodsNumber = $this->cartRepository->addGoodsToCart($arguments);
 			$number = $this->cartRepository->goodsNumInCartByUser($params['uid']);
 			$result['goods_number'] = $goodsNumber;

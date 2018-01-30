@@ -1051,7 +1051,7 @@ class Index extends \App\Http\Base\Controllers\Frontend
 			$virtual_goods = array();
 
 			foreach ($res as $row) {
-				$virtual_goods['virtual_card'][] = array('goods_id' => $row['goods_id'], 'goods_name' => $row['goods_name'], 'num' => $row['num']);
+				$virtual_goods['virtual_card'][] = array('goods_id' => $row['goods_id'], 'goods_name' => addslashes($row['goods_name']), 'num' => $row['num']);
 			}
 
 			if ($virtual_goods && ($flow_type != CART_GROUP_BUY_GOODS)) {

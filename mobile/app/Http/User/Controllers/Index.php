@@ -1295,7 +1295,7 @@ class Index extends \App\Http\Base\Controllers\Frontend
 		}
 		else {
 			$time = gmtime();
-			$other = array('user_id' => $_SESSION['user_id'], 'user_name' => $_SESSION['user_name'], 'goods_id' => $goods_id, 'goods_name' => $goods_name, 'goods_image' => $goods_image, 'title_id' => $title_id, 'type_id' => $type_id, 'inform_content' => $inform_content, 'add_time' => $time);
+			$other = array('user_id' => $_SESSION['user_id'], 'user_name' => $_SESSION['user_name'], 'goods_id' => $goods_id, 'goods_name' => addslashes($goods_name), 'goods_image' => $goods_image, 'title_id' => $title_id, 'type_id' => $type_id, 'inform_content' => $inform_content, 'add_time' => $time);
 			$report_id = dao('goods_report')->add($other);
 
 			if (0 < $report_id) {

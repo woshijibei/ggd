@@ -246,7 +246,7 @@ class Index extends \App\Http\Base\Controllers\Frontend
 			$total = $goods['number'] * $goods['goods_price'];
 			$sql = 'select goods_thumb from ' . $this->ecs->table('goods') . ' where goods_id = ' . $wholesale['goods_id'];
 			$goods['goods_thumb'] = $this->db->getOne($sql);
-			$_SESSION['wholesale_goods'][] = array('goods_id' => $wholesale['goods_id'], 'goods_name' => $wholesale['goods_name'], 'goods_attr_id' => $goods['goods_attr'], 'goods_attr' => $goods_attr_name, 'goods_number' => $goods['number'], 'goods_price' => $goods['goods_price'], 'goods_thumb' => get_image_path($goods['goods_thumb']), 'subtotal' => $total, 'formated_goods_price' => price_format($goods['goods_price'], false), 'formated_subtotal' => price_format($total, false), 'goods_url' => url('goods/index/index', array('id' => $wholesale['goods_id'])));
+			$_SESSION['wholesale_goods'][] = array('goods_id' => $wholesale['goods_id'], 'goods_name' => addslashes($wholesale['goods_name']), 'goods_attr_id' => $goods['goods_attr'], 'goods_attr' => $goods_attr_name, 'goods_number' => $goods['number'], 'goods_price' => $goods['goods_price'], 'goods_thumb' => get_image_path($goods['goods_thumb']), 'subtotal' => $total, 'formated_goods_price' => price_format($goods['goods_price'], false), 'formated_subtotal' => price_format($total, false), 'goods_url' => url('goods/index/index', array('id' => $wholesale['goods_id'])));
 		}
 
 		$this->ajaxReturn(array('error' => '0', 'msg' => L('success_add_to_cart')));

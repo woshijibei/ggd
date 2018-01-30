@@ -43,7 +43,7 @@ class UserService
 		$result['userInfo'] = $this->userRepository->userInfo($userId);
 		$bestGoods = $this->goodsRepository->findByType('best');
 		$result['best_goods'] = array_map(function($v) {
-			return array('goods_id' => $v['goods_id'], 'goods_name' => $v['goods_name'], 'market_price' => $v['market_price'], 'shop_price' => $v['shop_price'], 'goods_thumb' => get_image_path($v['goods_thumb']));
+			return array('goods_id' => $v['goods_id'], 'goods_name' => addslashes($v['goods_name']), 'market_price' => $v['market_price'], 'shop_price' => $v['shop_price'], 'goods_thumb' => get_image_path($v['goods_thumb']));
 		}, $bestGoods);
 		return $result;
 	}
@@ -340,7 +340,7 @@ class UserService
 		$list = $this->collectGoodsRepository->findByUserId($args['user_id'], $args['page'], $args['size']);
 		$collect = array_map(function($v) {
 			$goodsInfo = $this->goodsRepository->goodsInfo($v['goods_id']);
-			return array('goods_name' => $goodsInfo['goods_name'], 'shop_price' => $goodsInfo['goods_price'], 'goods_thumb' => get_image_path($goodsInfo['goods_thumb']), 'goods_stock' => $goodsInfo['stock'], 'time' => $v['add_time'], 'goods_id' => $v['goods_id']);
+			return array('goods_name' => addslashes($goodsInfo['goods_name']), 'shop_price' => $goodsInfo['goods_price'], 'goods_thumb' => get_image_path($goodsInfo['goods_thumb']), 'goods_stock' => $goodsInfo['stock'], 'time' => $v['add_time'], 'goods_id' => $v['goods_id']);
 		}, $list);
 		return $collect;
 	}
